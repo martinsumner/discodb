@@ -160,3 +160,19 @@ null
 [<<"v1">>,<<"v2">>]
 75>
 ```
+
+this better explains querying
+
+```
+23> discodb:list(discodb:q(DB5, [[<<"K1">>], [<<"K3">>]])).        
+[<<"V1">>]
+24> discodb:list(discodb:q(DB5, [[<<"K1">>], [<<"K2">>]])).
+[<<"V2">>]
+25> discodb:list(discodb:q(DB5, [[<<"K1">>, <<"K2">>]])).  
+[<<"V1">>,<<"V2">>]
+26> discodb:list(discodb:q(DB5, [[<<"K1">>, {no, <<"K2">>}]])).
+[<<"V1">>,<<"V2">>,<<"V3">>]
+27>
+```
+
+Inner and outer lists are used for or and and, and {no, K} as a tuple is used for NOT.
