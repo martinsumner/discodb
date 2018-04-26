@@ -3,7 +3,10 @@
 *.o
 *.pyc
 *.so
+*.d
 build
 doc/.build
 create
 query
+erlang/.rebar/*
+erlang/compile_commands.json
